@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/micah/.vim'
+let g:netrw_dirhist_2='/home/micah/workspace/cs148/source/shaders/brdf/epic/fragTexture'
+let g:netrw_dirhist_3='/home/micah/workspace/cs148/raytracer/cs148raytracer-public/CMakeFiles'
+let g:netrw_dirhist_4='/home/micah/Downloads/solarized/xresources-colors-solarized'
