@@ -17,6 +17,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tclem/vim-arduino'
 Plug 'lervag/vimtex'
 Plug 'valloric/youcompleteme'
+Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
 
 let g:vimtex_view_method = 'zathura'
