@@ -13,7 +13,6 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
-Plug 'tclem/vim-arduino'
 Plug 'lervag/vimtex'
 Plug 'ctrlp.vim'
 Plug 'valloric/youcompleteme'
@@ -25,10 +24,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'flazz/vim-colorschemes'
 
-let g:vimtex_view_method = 'zathura'
-
 call plug#end()
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:ycm_register_as_syntastic_checker = 0
+
+let g:vimtex_view_method = 'zathura'
+
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 

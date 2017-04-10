@@ -13,8 +13,8 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Droid Sans Mono 10
-# font pango:roboto monospace 8
+# font pango:Droid Sans Mono 10
+font pango:roboto monospace 10, FontAwesome
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -36,13 +36,26 @@ bindsym $mod+Return exec xterm
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# color definitions
+set $bg-color               #101010
+set $border-color           #b9b9b9
+set $inactive-bg-color      #686868
+set $text-color             #f7f7f7
+#set $inactive-text-color    #f7f7f7
+set $inactive-text-color    #b9b9b9
+set $urgent-bg-color        #686868
+
 # start rofi (dmenu replacement) (a program launcher)
-bindsym $mod+d exec rofi -show run -location 1 -columns 10 -lines 1 -fuzzy -width 100
+bindsym $mod+d exec rofi -show drun -lines 3 -eh 1 -width 25 -padding 10 -location 0 -bw 1 -fake-transparency -font "roboto monospace 15"
+#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "50"  -color-normal "#b9b9b9,#f7f7f7,#686868,#b9b9b9,#f7f7f7" -font "roboto monospace 10"
+#bindsym $mod+d exec rofi -show run -location 1 -columns 10 -lines 1 -fuzzy -width 100
 #bindsym $mod+d exec dmenu_run -fn 'roboto monospace 8' -nb '#002b36' -nf '#839496' -sb '#073642'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+bindsym $mod+Shift+x exec i3lock --blur 10 --clock --insidevercolor=101010ff --insidecolor=101010ff --ringvercolor=f7f7f7ff --ringcolor=b9b9b9ff --textcolor=f7f7f7ff
 
 # change focus
 bindsym $mod+j focus left
@@ -168,41 +181,56 @@ bindsym $mod+Ctrl+h resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l resize grow height 10 px or 10 ppt
 
 # Window gaps
-gaps inner 10
+gaps inner 25
 gaps outer 0
 smart_gaps on
 smart_borders on
 
 # Border style
-new_window pixel 2
+new_window pixel 1
 
 # class                   border  backgr. text    indicator
-#client.focused            #ffffff #ffffff #ffffff #ffffff
-#client.focused_inactive   #ffffff #ffffff #ffffff #ffffff
-#client.unfocused          #ffffff #ffffff #ffffff #ffffff
-#client.urgent             #ffffff #ffffff #ffffff #ffffff
+client.focused            $border-color $border-color $text-color #ffffff
+client.focused_inactive   $inactive-bg-color $inactive-bg-color $inactive-text-color #ffffff
+client.unfocused          $inactive-bg-color $inactive-bg-color $inactive-text-color #ffffff
+client.urgent             $urgent-bg-color $urgent-bg-color $text-color #ffffff
 #client.placeholder        #ffffff #ffffff #ffffff #ffffff
-
 #client.background #ffffff
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status -c ~/.config/i3/i3status.conf
+        # font pango:roboto monospace 12
+        # font pango:Droid Sans Mono 11
+        font pango:Droid Sans Mono 10, FontAwesome
+        # status_command i3status -c ~/.config/i3/i3status.conf
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
         position top
+
+        separator_symbol " "
 
         #Terminal.Sexy Colors
         colors {
             background  #101010
             statusline  #ffffff
-            separator   #b9b9b9
+            separator   $border-color
 
-            focused_workspace   #b9b9b9 #7c7c7c #f7f7f7
-            active_workspace    #a0a0a0 #a0a0a0 #b9b9b9
-            inactive_workspace  #686868 #686868 #b9b9b9
-            urgent_workspace    #b9b9b9 #686868 #b9b9b9
-            binding_mode        #b9b9b9 #686868 #b9b9b9
+            focused_workspace   $border-color #7c7c7c $text-color
+            active_workspace    #a0a0a0 #a0a0a0 $bg-color
+            inactive_workspace  $inactive-bg-color $inactive-bg-color $inactive-text-color
+            urgent_workspace    $bg-color $inactive-bg-color $bg-color
+            binding_mode        $bg-color $inactive-bg-color $bg-color
+
+#            background  #101010
+#            statusline  #ffffff
+#            separator   #b9b9b9
+
+#            focused_workspace   #b9b9b9 #7c7c7c #f7f7f7
+#            active_workspace    #a0a0a0 #a0a0a0 #b9b9b9
+#            inactive_workspace  #686868 #686868 #b9b9b9
+#            urgent_workspace    #b9b9b9 #686868 #b9b9b9
+#            binding_mode        #b9b9b9 #686868 #b9b9b9
         }
 }
 
