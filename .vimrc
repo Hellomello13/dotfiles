@@ -24,6 +24,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'flazz/vim-colorschemes'
 
+Plug 'justinmk/vim-syntax-extra' " syntax highlighting for flex/bison (cs 143)
+
 call plug#end()
 
 set statusline+=%#warningmsg#
