@@ -216,7 +216,8 @@ bar {
             statusline  #ffffff
             separator   $border-color
 
-            focused_workspace   $border-color #7c7c7c $text-color
+            #focused_workspace   $border-color #7c7c7c $text-color
+            focused_workspace   $border-color $inactive-bg-color $text-color
             active_workspace    #a0a0a0 #a0a0a0 $bg-color
             inactive_workspace  $inactive-bg-color $inactive-bg-color $inactive-text-color
             urgent_workspace    $bg-color $inactive-bg-color $bg-color

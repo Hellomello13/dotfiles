@@ -34,10 +34,13 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_windows_after_completion = 1
+let g:ycm_autoclose_preview_windows_after_insertion = 1
 
 let g:vimtex_view_method = 'zathura'
 
